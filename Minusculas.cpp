@@ -62,7 +62,7 @@ int main() {
                 temp.append(answers[aChecar + 1]);
                 
                 strncpy(arrTemp, temp.c_str(), sizeof(temp));
-                arrTemp[sizeof(arrTemp)] = '\0';
+                //arrTemp[sizeof(arrTemp)] = '\0';
                 sort(arrTemp, arrTemp+sizeof(arrTemp));
                 
                 /*cout << "Temp: " << endl;*/
