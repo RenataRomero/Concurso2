@@ -52,22 +52,20 @@ int main() {
             cout << answers[i] << endl;
         
         int cycles = j / 2;
-        
+        int aChecar = 0;
         while (j < outputs) {
             
             for (int i = j; i < cycles + j; i += 2) {
-                char arrTemp[answers[i - 1].length() + answers[i - 2].length()];
+                char arrTemp[answers[aChecar].length() + answers[aChecar + 1].length()];
                 
-                string temp = answers[i - 1];
-                temp.append(answers[i - 2]);
+                string temp = answers[aChecar];
+                temp.append(answers[aChecar + 1]);
                 
                 strncpy(arrTemp, temp.c_str(), sizeof(temp));
                 arrTemp[sizeof(arrTemp)] = '\0';
                 sort(arrTemp, arrTemp+sizeof(arrTemp));
                 
                 /*cout << "Temp: " << endl;*/
-                
-                
                 
                 for (int h = 0; h < sizeof(arrTemp); h++) {
                     if (arrTemp[h] >= 'a' && arrTemp[h] <= 'z')
@@ -78,6 +76,7 @@ int main() {
                 
                 answers.push_back(arrTemp);
                 j++;
+                aChecar += 2;
             }
             
             cycles /= 2;
